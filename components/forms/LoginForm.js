@@ -4,6 +4,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../../redux/currentUserSlice";
 import _ from "lodash";
+import PrimaryButton from "../PrimaryButton";
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [isEmailError, setIsEmailError] = useState(false);
@@ -63,8 +64,12 @@ function LoginForm() {
         isError={isPasswordError}
         errorText="Senha Inválido"
       />
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <a onClick={onSignIn}>Esqueci a senha</a>
+
+      <PrimaryButton text={"Login"} onClick={onSignIn} />
+      <div
+        style={{ display: "flex", justifyContent: "flex-end", marginTop: 5 }}
+      >
+        <a>Esqueci a senha</a>
       </div>
     </div>
   );

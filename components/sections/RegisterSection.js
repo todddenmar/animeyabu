@@ -8,7 +8,12 @@ function RegisterSection({ onShowLogin }) {
   return (
     <div className={styles.registerSection}>
       <div className={styles.logo}>
-        <Image src={"/images/icon.png"} width={46} height={46} />
+        <Image
+          src={"/images/icon.png"}
+          width={46}
+          height={46}
+          alt="anbu-mask"
+        />
         <p>
           anime<span className={styles.highlight}>yabu.</span>
         </p>

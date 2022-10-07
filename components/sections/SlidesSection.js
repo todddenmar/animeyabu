@@ -10,7 +10,12 @@ function SlidesSection() {
       <div className={styles.imageContainer}>
         <div className={styles.imageCircle} />
         <div className={styles.firstImage}>
-          <Image src="/images/tanjiro.png" width={622} height={625} />
+          <Image
+            src="/images/tanjiro.png"
+            width={622}
+            height={625}
+            alt="tanjiro-kamado"
+          />
         </div>
       </div>
       <div>

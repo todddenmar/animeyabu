@@ -11,7 +11,12 @@ function LoginSection({ onShowRegister }) {
       <div className={styles.container}>
         <BackButton />
         <div className={styles.banner}>
-          <Image src={"/images/login-image.png"} width={306} height={153} />
+          <Image
+            src={"/images/login-image.png"}
+            width={306}
+            height={153}
+            alt="mask-tanjiro"
+          />
           <h2 className={styles.japText}>ひさしぶり!</h2>
           <p>Olá, sentimos sua falta!</p>
         </div>
