@@ -4,15 +4,16 @@ import RegisterSection from "../components/sections/RegisterSection";
 import LoginSection from "../components/sections/LoginSection";
 import SlidesSection from "../components/sections/SlidesSection";
 import styles from "../styles/LoginPage.module.scss";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../redux/currentUserSlice";
 import PrimaryButton from "../components/PrimaryButton";
-
+import { useRouter } from "next/router";
 export default function LoginPage() {
   const auth = getAuth();
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser.value);
+  const router = useRouter();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -31,17 +32,13 @@ export default function LoginPage() {
     });
   }, []);
 
-  const onLogout = () => {
-    const auth = getAuth();
-    signOut(auth)
-      .then(() => {
-        console.log("logged Out");
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-  };
-  const [isRegistering, setIsRegistering] = useState(true);
+  useEffect(() => {
+    if (currentUser) {
+      router.push("/profile");
+    }
+  }, [currentUser]);
+
+  const [isRegistering, setIsRegistering] = useState(false);
   return (
     <div className={styles.container}>
       <Header
@@ -50,24 +47,16 @@ export default function LoginPage() {
  no seu celular ou computador. 
 Animeyabu, o seu portal de animes online!"
       />
-      {currentUser ? (
-        <main className={styles.profile}>
-          <div className={styles.container}>
-            <h1>{currentUser.email}</h1>
-            <PrimaryButton text={"Logout"} onClick={onLogout} />
-          </div>
-        </main>
-      ) : (
-        <main className={styles.main}>
-          {isRegistering ? (
-            <RegisterSection onShowLogin={() => setIsRegistering(false)} />
-          ) : (
-            <LoginSection onShowRegister={() => setIsRegistering(true)} />
-          )}
 
-          <SlidesSection />
-        </main>
-      )}
+      <main className={styles.main}>
+        {isRegistering ? (
+          <RegisterSection onShowLogin={() => setIsRegistering(false)} />
+        ) : (
+          <LoginSection onShowRegister={() => setIsRegistering(true)} />
+        )}
+
+        <SlidesSection />
+      </main>
     </div>
   );
 }

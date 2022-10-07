@@ -1,0 +1,15 @@
+@use "abstracts/fonts";
+@import "mixins";
+
+.main {
+  font-family: fonts.$primaryFont;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: white;
+  background-color: black;
+  .container {
+    max-width: 500px;
+  }
+}
