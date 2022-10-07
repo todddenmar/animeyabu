@@ -1,0 +1,36 @@
+@import "../abstracts/colors";
+@import "../abstracts/fonts";
+
+.container {
+  display: grid;
+  font-family: $inputLabelFont;
+  input {
+    padding: 22px 21px 21px 21px;
+    border-radius: 10px;
+    border: 2px white solid;
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    background-color: rgba($color: #fff, $alpha: 0.47);
+    &::placeholder {
+      color: $placeholderColor;
+    }
+    &:active,
+    &:focus {
+      border: 2px $primaryColor solid;
+    }
+  }
+  .error {
+    border: 2px $errorBorderColor solid;
+  }
+  .errorText {
+    display: flex;
+    justify-content: flex-end;
+    color: $errorBorderColor;
+    padding: 0px 10px;
+    p {
+      line-height: 0;
+    }
+  }
+}

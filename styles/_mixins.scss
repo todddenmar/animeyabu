@@ -1,0 +1,46 @@
+@mixin sm() {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin xl() {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin xxl() {
+  @media (max-width: 1536px) {
+    @content;
+  }
+}
+
+@mixin flexCentered() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin slideButton() {
+  width: 39px;
+  height: 6px;
+  border-radius: 53px;
+  cursor: pointer;
+  border: none;
+  &:hover {
+    opacity: 0.8;
+  }
+}

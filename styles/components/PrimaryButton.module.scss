@@ -1,0 +1,18 @@
+@import "../abstracts/colors";
+@import "../abstracts/fonts";
+
+.main {
+  background-color: $primaryButtonColor;
+  cursor: pointer;
+  padding: 21px 22px 22px 22px;
+  width: 100%;
+  border-radius: 10px;
+  font-family: $secondaryFont;
+  font-weight: 700;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  &:hover {
+    opacity: 0.8;
+  }
+}

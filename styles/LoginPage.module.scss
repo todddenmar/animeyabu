@@ -1,0 +1,24 @@
+@use "abstracts/fonts";
+@import "mixins";
+
+.main {
+  font-family: fonts.$primaryFont;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  @include lg() {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: white;
+  background-color: black;
+  .container {
+    max-width: 500px;
+  }
+}

@@ -1,0 +1,79 @@
+@import "../mixins";
+@import "../abstracts/colors.scss";
+@import "../abstracts/fonts.scss";
+
+.slidesSection {
+  background-color: $darkPrimaryColor;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  @include lg() {
+    display: none;
+  }
+  .imageContainer {
+    overflow: none;
+    width: 548px;
+    height: 548px;
+    left: -74px;
+    position: relative;
+  }
+  .imageCircle {
+    position: absolute;
+    left: 74px;
+    top: 63px;
+    width: 548px;
+    height: 548px;
+    border-radius: 100%;
+    background-color: $primaryColor;
+  }
+  .firstImage {
+    position: absolute;
+    left: 80px;
+    top: 127px;
+  }
+  .highlight {
+    color: $primaryColor;
+  }
+  .headerSection {
+    .title {
+      font-weight: 900;
+      font-family: $primaryFont;
+      font-size: 80.13px;
+      line-height: 0;
+      letter-spacing: 8px;
+    }
+    .description {
+      width: 463px;
+      font-family: $primaryFont;
+      font-size: 18px;
+      text-align: center;
+    }
+    .bold {
+      font-weight: 700;
+      font-family: $primaryFont;
+      font-size: 18px;
+      text-align: center;
+      line-height: 0;
+    }
+  }
+
+  .slideButtons {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+    margin-top: 33px;
+    .slideButtonActive {
+      @include slideButton();
+      background-color: #c4c4c4;
+    }
+    .slideButtonInactive {
+      @include slideButton();
+      background-color: rgba($color: #c4c4c4, $alpha: 0.48);
+    }
+  }
+}
